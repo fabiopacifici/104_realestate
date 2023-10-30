@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
-@section('title', 'Real Estate Welcome')
+@section('title', 'Our Houses')
 
 @section('content')
 
 
 <div class="p-5 mb-4 bg-light rounded-3">
     <div class="container py-5">
-        <h1 class="display-5 fw-bold">Our Real Estate</h1>
-        <p class="col-md-8 fs-4">Top quality houses for rich people</p>
+        <h1 class="display-5 fw-bold">Top Quality Houses</h1>
+        <p class="col-md-8 fs-4">Find yuor new home </p>
         <button class="btn btn-primary btn-lg" type="button">Find out more</button>
     </div>
 </div>
@@ -16,14 +16,9 @@
 
 <section class="latest_houses py-5">
     <div class="container">
-        <h3>Latest Houses</h3>
-        <p class="lead">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum esse necessitatibus exercitationem, in rem natus? Quam error, praesentium pariatur quod ipsa sed id qui placeat corrupti officia, nam cum sint.
-        </p>
-
-        <div class="row">
-
-            @forelse ($latest_houses as $house)
+        <h3>Houses</h3>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+            @forelse ($houses as $house)
             <div class="col">
                 <div class="card h-100 shadow">
                     <img src="{{$house->image}}" alt="" class="card-img-top">
@@ -44,10 +39,9 @@
             @endforelse
 
         </div>
-
-
-
-
+        <div class="my-3">
+            {{$houses->links('pagination::bootstrap-5')}}
+        </div>
 
     </div>
 </section>

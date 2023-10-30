@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Gusts\PagesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PagesController::class, 'index'])->name('home');
+
+Route::get('/houses', [PagesController::class, 'houses'])->name('houses');
+
+
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
+
+Route::get('/contacts', function () {
+    return view('contacts');
+})->name('contacts');
